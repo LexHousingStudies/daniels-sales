@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="templates/indexStyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
+        <script>
+        	$(document).ready(function(){
+    			$('#myTable').DataTable();
+			});
+        </script>
+
+        <style>
+			html, body {
+				font-family: 'Lato', sans;
+				background-color: black;
+				color: whitesmoke;
+			}
+
+			.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+				color: whitesmoke;
+			}
+
+			td {
+				color: black;
+			}
+        </style>
+	</head>
+	<body>
+		<div id="map" style="width:100%; height:300px;"></div>
+		<h1>Rock Daniels Facilitated Sales</h1>
+		<table id="myTable" class="display">
+			<thead>
+			<tr>
+				<th>Address</th>
+				<th>Sale Price</th>
+				<th>Sale Date</th>
+				<th>Purchase Price</th>
+				<th>Purchase Date</th>
+				<th>% Increase</th>
+				<th>Months</th>
+				<th>Notes</th>
+			</tr>
+			</thead>
+
+			<tbody>
+			
+			<tr>
+				<td><a href="1/">617 N BROADWAY</a></td>
+				<td>29000</td>
+				<td>2013-10</td>
+				<td>165000</td>
+				<td>2014-08</td>
+				<td>569</td>
+				<td>10</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="2/">645 N BROADWAY</a></td>
+				<td>68000</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="3/">651 N BROADWAY</a></td>
+				<td>29500</td>
+				<td>2014-10</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="4/">530 ELM TREE LN</a></td>
+				<td>100000</td>
+				<td>2015-04</td>
+				<td>375000</td>
+				<td>Current</td>
+				<td>375</td>
+				<td>6</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="5/">721 HEADLEY AVE</a></td>
+				<td>52000</td>
+				<td>2012-12</td>
+				<td>163300</td>
+				<td>Current</td>
+				<td>314</td>
+				<td>34</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="6/">509 N LIMESTONE</a></td>
+				<td>42500</td>
+				<td>2010-08</td>
+				<td>169500</td>
+				<td>2015-07</td>
+				<td>398.8</td>
+				<td>47</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="7/">513 N LIMESTONE</a></td>
+				<td>70000</td>
+				<td>2013-08</td>
+				<td>149500</td>
+				<td>2015-07</td>
+				<td>213.6</td>
+				<td>23</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="8/">515 N LIMESTONE</a></td>
+				<td>53000</td>
+				<td>2013-09</td>
+				<td>159500</td>
+				<td>Current</td>
+				<td>300.9</td>
+				<td>25</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="9/">549 N LIMESTONE</a></td>
+				<td>35000</td>
+				<td>2012-03</td>
+				<td>127500</td>
+				<td>Current</td>
+				<td>364.3</td>
+				<td>43</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="10/">555 N LIMESTONE</a></td>
+				<td>72500</td>
+				<td>2011-07</td>
+				<td>187500</td>
+				<td>2015-08</td>
+				<td>258.6</td>
+				<td>49</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="11/">557 N LIMESTONE</a></td>
+				<td>50000</td>
+				<td>2011-04</td>
+				<td>205500</td>
+				<td>2015-08</td>
+				<td>411</td>
+				<td>52</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="12/">175 E LOUDON AVE</a></td>
+				<td>35000</td>
+				<td>2012-05</td>
+				<td>229500</td>
+				<td>Current</td>
+				<td>655.7</td>
+				<td>41</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="13/">109 RAND AVE</a></td>
+				<td>55300</td>
+				<td>2014-11</td>
+				<td>175000</td>
+				<td>2015-06</td>
+				<td>316.5</td>
+				<td>7</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="14/">110 RAND AVE</a></td>
+				<td>49000</td>
+				<td>2013-12</td>
+				<td>182500</td>
+				<td>2014-11</td>
+				<td>372.4</td>
+				<td>11</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="15/">112 RAND AVE</a></td>
+				<td>26500</td>
+				<td>2010-08</td>
+				<td>109000</td>
+				<td>2011-04</td>
+				<td>411.3</td>
+				<td>8</td>
+				<td>This property has been sold two more times since this listed transaction</td>
+			</tr>
+			
+			<tr>
+				<td><a href="16/">120 RAND AVE</a></td>
+				<td>50300</td>
+				<td>2015-04</td>
+				<td>185000</td>
+				<td>Current</td>
+				<td>367.8</td>
+				<td>6</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="17/">124 RAND AVE</a></td>
+				<td>110100</td>
+				<td>2014-04</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="18/">125 RAND AVE</a></td>
+				<td>35300</td>
+				<td>2015-03</td>
+				<td>175000</td>
+				<td>Current</td>
+				<td>495.8</td>
+				<td>7</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="19/">127 RAND AVE</a></td>
+				<td>65500</td>
+				<td>2014-10</td>
+				<td>147000</td>
+				<td>2015-07</td>
+				<td>224.4</td>
+				<td>9</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="20/">129 RAND AVE</a></td>
+				<td>65500</td>
+				<td>2014-10</td>
+				<td>145000</td>
+				<td>2015-07</td>
+				<td>221.4</td>
+				<td>9</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="21/">136 RAND AVE</a></td>
+				<td>65500</td>
+				<td>2014-10</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="22/">463 SILVER MAPLE WAY</a></td>
+				<td>20000</td>
+				<td>2014-04</td>
+				<td>122500</td>
+				<td>2015-07</td>
+				<td>612.5</td>
+				<td>15</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td><a href="23/">315 W SIXTH ST</a></td>
+				<td>75000</td>
+				<td>2014-06</td>
+				<td>233333</td>
+				<td>Current</td>
+				<td>311.1</td>
+				<td>16</td>
+				<td></td>
+			</tr>
+			
+			</tbody>
+		</table>
+		<script>
+			var map = L.map('map', {
+				maxZoom: 18,
+				minZoom: 10
+			}).setView([38.053342, -84.487181],14);
+			var base = new L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				subdomains: 'abcd',
+				ext: 'png'
+			});
+			map.addLayer(base);
+			
+			var parcels = new L.tileLayer('http://lexhousingstudies.github.io/lexington-parcels/{z}/{x}/{y}.png', {
+				maxNativeZoom: 16,
+				maxZoom: 18,
+			}).addTo(map);
+
+			var data = {
+				"type": "FeatureCollection",
+				"features": [
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "617 N BROADWAY",
+							"ID": "1"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4890454754, 38.0571573473]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "645 N BROADWAY",
+							"ID": "2"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4881410542, 38.0575766912]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "651 N BROADWAY",
+							"ID": "3"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4879275529, 38.0576711855]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "530 ELM TREE LN",
+							"ID": "4"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.483702614, 38.0496889986]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "721 HEADLEY AVE",
+							"ID": "5"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4868515367, 38.0603250054]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "509 N LIMESTONE",
+							"ID": "6"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4882914805, 38.0528257456]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "513 N LIMESTONE",
+							"ID": "7"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4882674623, 38.0529219249]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "515 N LIMESTONE",
+							"ID": "8"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4882017011, 38.0529683979]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "549 N LIMESTONE",
+							"ID": "9"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4873385722, 38.0535400624]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "555 N LIMESTONE",
+							"ID": "10"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4871460077, 38.0536285174]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "557 N LIMESTONE",
+							"ID": "11"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4870940884, 38.0537064361]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "175 E LOUDON AVE",
+							"ID": "12"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4794650242, 38.0559175037]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "109 RAND AVE",
+							"ID": "13"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4867095834, 38.0531898569]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "110 RAND AVE",
+							"ID": "14"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4873056273, 38.0530947747]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "112 RAND AVE",
+							"ID": "15"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4872274465, 38.0530248076]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "120 RAND AVE",
+							"ID": "16"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4869210482, 38.0527505994]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "124 RAND AVE",
+							"ID": "17"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4867434168, 38.0525916294]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "125 RAND AVE",
+							"ID": "18"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4863574369, 38.0528745223]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "127 RAND AVE",
+							"ID": "19"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4862784226, 38.0528179638]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "129 RAND AVE",
+							"ID": "20"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4862200669, 38.0527655259]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "136 RAND AVE",
+							"ID": "21"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.486468064, 38.0523452055]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "463 SILVER MAPLE WAY",
+							"ID": "22"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4864513276, 38.050056338]
+						}
+					},
+					
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "315 W SIXTH ST",
+							"ID": "23"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [-84.4883921081, 38.0560246702]
+						}
+					}
+					
+				]
+			};
+			var dataLayer = L.geoJson(data, {
+				onEachFeature: function(feature, layer) {
+					layer.bindPopup('<a href="' + feature.properties.ID + '">' + feature.properties.ADDRESS + '</a>');
+				}
+			});
+			map.addLayer(dataLayer);
+		</script>
+	</body>
+</html>
