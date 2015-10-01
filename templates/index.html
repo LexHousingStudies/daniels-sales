@@ -3,5 +3,29 @@
 	<head></head>
 	<body>
 		<h1>Rock Daniels Facilitated Sales</h1>
+		<table border=1 cellpadding=7>
+			<tr>
+				<th>Address</th>
+				<th>Purchase Price</th>
+				<th>Purchase Date</th>
+				<th>Sale Price</th>
+				<th>Sale Date</th>
+				<th>% Increase</th>
+				<th>Months</th>
+				<th>Notes</th>
+			</tr>
+			{% for obj in object_list %}
+			<tr>
+				<td>{{ obj.ADDRESS }}</td>
+				<td>{{ obj.SALEPRICE }}</td>
+				<td>{{ obj.SALEDATE }}</td>
+				<td>{{ obj.PURCHASEPRICE }}</td>
+				<td>{{ obj.PURCHASEDATE }}</td>
+				<td>{{ obj.PCT_INCREASE }}</td>
+				<td>{{ obj.MONTHS }}</td>
+				<td>{{ obj.NOTES }}</td>
+			</tr>
+			{% endfor %}
+		</table>
 	</body>
 </html>
