@@ -1,13 +1,40 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<link rel="stylesheet" href="http://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+		<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="templates/indexStyle.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script src="http://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
+        <script>
+        	$(document).ready(function(){
+    			$('#myTable').DataTable();
+			});
+        </script>
+
+        <style>
+			html, body {
+				font-family: 'Lato', sans;
+				background-color: black;
+				color: whitesmoke;
+			}
+
+			.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+				color: whitesmoke;
+			}
+
+			td {
+				color: black;
+			}
+        </style>
 	</head>
 	<body>
 		<div id="map" style="width:100%; height:300px;"></div>
 		<h1>Rock Daniels Facilitated Sales</h1>
-		<table border=1 cellpadding=7>
+		<table id="myTable" class="display">
+			<thead>
 			<tr>
 				<th>Address</th>
 				<th>Sale Price</th>
@@ -18,6 +45,9 @@
 				<th>Months</th>
 				<th>Notes</th>
 			</tr>
+			</thead>
+
+			<tbody>
 			{% for obj in object_list %}
 			<tr>
 				<td><a href="{{ obj.ID }}">{{ obj.ADDRESS }}</a></td>
@@ -30,6 +60,7 @@
 				<td>{{ obj.NOTES }}</td>
 			</tr>
 			{% endfor %}
+			</tbody>
 		</table>
 		<script>
 			var map = L.map('map').setView([38.053342, -84.487181],14);
