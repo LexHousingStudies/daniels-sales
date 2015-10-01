@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en">
-	<head></head>
+	<head>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js?2"></script>
+	</head>
 	<body>
+		<div id="map" style="width:100%; height:300px;"></div>
 		<h1>Rock Daniels Facilitated Sales</h1>
 		<table border=1 cellpadding=7>
 			<tr>
@@ -27,5 +31,43 @@
 			</tr>
 			{% endfor %}
 		</table>
+		<script>
+			var map = L.map('map').setView([38.053342, -84.487181],14);
+			var base = new L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+				attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+				subdomains: 'abcd',
+				minZoom: 0,
+				maxZoom: 20,
+				ext: 'png'
+			});
+			map.addLayer(base);
+			
+			var parcels = new L.tileLayer('http://lexhousingstudies.github.io/lexington-parcels/{z}/{x}/{y}.png').addTo(map);
+
+			var data = {
+				"type": "FeatureCollection",
+				"features": [
+					{% for obj in object_list %}
+					{
+						"type": "Feature",
+						"properties": {
+							"ADDRESS": "{{ obj.ADDRESS }}",
+							"ID": "{{ obj.ID }}"
+						},
+						"geometry": {
+							"type": "Point",
+							"coordinates": [{{obj.X}}, {{obj.Y}}]
+						}
+					}{% if not loop.last %},{% endif %}
+					{% endfor %}
+				]
+			};
+			var dataLayer = L.geoJson(data, {
+				onEachFeature: function(feature, layer) {
+					layer.bindPopup('<a href="' + feature.properties.ID + '">' + feature.properties.ADDRESS + '</a>');
+				}
+			});
+			map.addLayer(dataLayer);
+		</script>
 	</body>
 </html>
